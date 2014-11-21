@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web.OData.Query;
 using System.Web.OData.Routing;
+using ProductService.ViewModel;
 
 namespace ProductService.Controllers
 {
@@ -21,11 +22,13 @@ namespace ProductService.Controllers
         {
             return db.Products.Any(p => p.ID == key);
         }
-        [EnableQuery]
+
+        [EnableQuery(PageSize = 10, AllowedQueryOptions = AllowedQueryOptions.All)]
         // Products(1)
-        public IQueryable<Product> Get()
+        public IQueryable<Product> Get(ODataQueryOptions queryOptions)
         {
             return db.Products;
+            
         }
 
         // GET /Products(1)/Supplier
