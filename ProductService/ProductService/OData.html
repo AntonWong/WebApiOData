@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="js/jquery-1.7.1.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $("#sendPost").click(function() {
+                $.post(
+                    "/Products", {},
+                    function(data) {
+
+                    }
+                );
+            });
+            $("#sendActionPost").click(function () {
+                $.ajax({
+                    type: "post",
+                    url: "/Products(1)/ProductService.Rate",
+                    data: {},
+                    dataType: "json",
+                    success: function (data) {
+
+                    }
+                });
+            });
+            $("#sendPut").click(function () {
+
+            });
+
+
+            $("#sendDelete").click(function () {
+
+            })
+        })
+    </script>
+
+</head>
+    <body>
+        <button class="btn" id="sendPost" type="button">POST请求</button><br />
+        <button class="btn" id="sendActionPost" type="button">Action POST请求</button><br />
+        <button class="btn" id="sendPut" type="button">PUT请求</button><br />
+        <button class="btn" id="sendDelete" type="button">DELETE请求</button><br />
+    </body>
+</html>
+
